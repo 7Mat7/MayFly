@@ -24,6 +24,12 @@
   <%= @place.size %>
 </p>
 
+<p>
+<% @place.photos.each do |photo|%>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
+</p>
+
 <ul class="list-group">
   <% @place.reviews.each do |review| %>
     <li class="list-group-item">
