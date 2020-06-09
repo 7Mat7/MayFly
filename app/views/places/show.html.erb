@@ -1,2 +1,37 @@
 <h1>Places#show</h1>
 <p>Find me in app/views/places/show.html.erb</p>
+
+<!-- <p id="notice"><%= notice %></p> -->
+
+<p>
+  <strong>Description:</strong>
+  <%= @place.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @place.price %>
+</p>
+
+<p>
+  <strong>location:</strong>
+  <%= @place.location %>
+</p>
+
+<p>
+  <strong>size:</strong>
+  <%= @place.size %>
+</p>
+
+<ul class="list-group">
+  <% @place.reviews.each do |review| %>
+    <li class="list-group-item">
+      <%= review.comment %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_place_path(@place) %> |
+<%= link_to 'Back', places_path %> |
+<%= link_to 'Leave a review', new_place_review_path(@place) %>
+<%= link_to 'Book now', new_place_booking_path(@place) %>

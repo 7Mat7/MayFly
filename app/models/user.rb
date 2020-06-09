@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy, foreign_key: :guest_id
   has_many :reviews, dependent: :destroy, foreign_key: :guest_id
 
-  validates :name, :email, presence: true
+  validates :email, presence: true
 end
