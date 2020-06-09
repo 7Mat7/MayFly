@@ -39,6 +39,6 @@
 <% if current_user != @place.renter %>
 <%= link_to 'Leave a review', new_place_review_path(@place) %>
 <% end %>
-<% if current_user != @place.renter %>
+<% if policy(@place).book? %>
 <%= link_to 'Book now', new_place_booking_path(@place) %>
 <% end %>

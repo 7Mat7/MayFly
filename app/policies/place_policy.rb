@@ -15,6 +15,11 @@ class PlacePolicy < ApplicationPolicy
     record.renter == user
   end
 
+  def book?
+    record.bookings.where("bookings.end_date > ?", Time.now).empty? && record.renter != user
+    # !record.bookings.where("bookings.end_date > ?", Time.now).any?
+  end
+
   class Scope < Scope
     def resolve
       scope.all
