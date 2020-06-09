@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.guest = current_user
     @booking.place = @place
+    authorize(@booking)
     if @booking.save!
       redirect_to place_path(@place), notice: 'Booking was successfully created.'
     else
@@ -20,6 +21,8 @@ class BookingsController < ApplicationController
 
   def set_place
     @place = Place.find(params[:place_id])
+    authorize(@place)
+
   end
 
   def booking_params

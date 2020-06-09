@@ -9,6 +9,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.guest = current_user
     @review.place = @place
+    authorize(@review)
     if @review.save!
       redirect_to place_path(@place), notice: 'Review was successfully created.'
     else
@@ -20,6 +21,7 @@ class ReviewsController < ApplicationController
 
   def set_place
     @place = Place.find(params[:place_id])
+    authorize(@place)
   end
 
   def review_params
