@@ -3,7 +3,7 @@ class PlacesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @places = Place.all
+    @places = policy_scope(Place)
   end
 
   def show
@@ -11,6 +11,7 @@ class PlacesController < ApplicationController
 
   def new
     @place = Place.new
+     authorize(@place)
   end
 
   def create
@@ -46,6 +47,7 @@ class PlacesController < ApplicationController
 
   def set_place
     @place = Place.find(params[:id])
+    authorize(@place)
   end
 
   def place_params
