@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :places
-  has_many :bookings
-  has_many :reviews
+  has_many :places, dependent: :destroy, foreign_key: :renter_id
+  has_many :bookings, dependent: :destroy, foreign_key: :guest_id
+  has_many :reviews, dependent: :destroy, foreign_key: :guest_id
 
   validates :name, :email, presence: true
 end
