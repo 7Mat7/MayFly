@@ -7,9 +7,16 @@
 <% @places.each do |place|  %>
 <li> <%= place.description %> </li>
 <%= link_to "voir", place_path(place) %>
-<%= link_to "edit", edit_place_path(place) %>
+<% if policy(place).edit? %>
+    <%= link_to "Update", edit_place_path(place) %>
+  <% end %>
+  <% if policy(place).destroy? %>
 <%= link_to "destroy", place_path(place), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
 <% end %>
 </ul>
 
-<%= link_to 'Add your place', new_place_path %>
+<% if policy(Place).create? %>
+  <%= link_to 'Add your place', new_place_path %>
+<% end %>
+
