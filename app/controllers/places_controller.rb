@@ -4,9 +4,9 @@ class PlacesController < ApplicationController
 
   def index
     @places = policy_scope(Place)
-    @places = Place.geocoded
+    @shops = Place.geocoded
 
-    @markers = @places.map do |place|
+    @markers = @shops.map do |place|
       {
         lat: place.latitude,
         lng: place.longitude
