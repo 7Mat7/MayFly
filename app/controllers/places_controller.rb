@@ -4,6 +4,14 @@ class PlacesController < ApplicationController
 
   def index
     @places = policy_scope(Place)
+    @places = Place.geocoded
+
+    @markers = @places.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude
+      }
+    end
   end
 
   def show
@@ -52,6 +60,6 @@ class PlacesController < ApplicationController
   end
 
   def place_params
-    params.require(:place).permit(:description, :price, :location, :size, :renter_id, photos: [])
+    params.require(:place).permit(:description, :price, :location, :size, :renter_id, :name, photos: [])
   end
 end
