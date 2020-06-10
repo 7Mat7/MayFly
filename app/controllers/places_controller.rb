@@ -8,7 +8,8 @@ class PlacesController < ApplicationController
       {
         lat: place.latitude,
         lng: place.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { place: place })
+        infoWindow: render_to_string(partial: "info_window", locals: { place: place }),
+        image_url: helpers.asset_url('logo.png')
     }
     end
   end
