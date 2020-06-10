@@ -3,17 +3,25 @@
 <%= user_signed_in?  %>
 <%= current_user %>
 
+<p>Filter by</p>
 <ul>
-<% @places.each do |place|  %>
-<li> <%= place.description %> </li>
-<%= link_to "voir", place_path(place) %>
-<% if policy(place).edit? %>
-    <%= link_to "Update", edit_place_path(place) %>
+  <li id="size"> Size  </li>
+  <li id="price"> Price </li>
+  <li id="available"> Availability </li>
+</ul>
+
+<ul id='list'>
+  <% @places.each do |place|  %>
+    <li class='listed-place' data-size=<%=place.size%> data-price=<%= place.price %> data-available=<%= policy(place).book? %>> <%= place.description %> | <%= place.price %>$ | <%= place.size %>m2
+      <%= link_to "voir", place_path(place) %>
+      <% if policy(place).edit? %>
+        <%= link_to "Update", edit_place_path(place) %>
+      <% end %>
+      <% if policy(place).destroy? %>
+        <%= link_to "destroy", place_path(place), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </li>
   <% end %>
-  <% if policy(place).destroy? %>
-<%= link_to "destroy", place_path(place), method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
-<% end %>
 </ul>
 
 <% if policy(Place).create? %>
@@ -25,3 +33,4 @@
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
+<%= javascript_pack_tag 'sort' %>
