@@ -23,3 +23,14 @@ price.addEventListener('click', (e) => {
   list.innerHTML = ''
   arrayFromNodeList.forEach(e => list.appendChild(e))
 })
+
+available.addEventListener('click', (e) => {
+  const listedItemAvailable = document.querySelectorAll('.listed-place');
+  const arrayFromNodeList = Array.from(listedItemAvailable);
+  console.log(arrayFromNodeList);
+  arrayFromNodeList.forEach((element) => {
+    if (element.dataset.available == "false") {
+      element.classList.toggle("unavailable-place");
+    };
+  });
+})
