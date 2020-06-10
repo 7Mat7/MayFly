@@ -14,3 +14,12 @@ size.addEventListener('click', (e) => {
   arrayFromNodeList.forEach(e => list.appendChild(e))
 })
 
+price.addEventListener('click', (e) => {
+  const listedItemPrice = document.querySelectorAll('.listed-place');
+  const arrayFromNodeList = Array.from(listedItemPrice);
+  arrayFromNodeList.sort((a, b) => {
+    return parseInt(a.dataset.price) - parseInt(b.dataset.price);
+  })
+  list.innerHTML = ''
+  arrayFromNodeList.forEach(e => list.appendChild(e))
+})
