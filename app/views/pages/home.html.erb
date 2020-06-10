@@ -1,23 +1,27 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home-banner">
+  <h1>MayFly</h1>
+  <h2>Find the best shop for your business !</h2>
+</div>
+
+<div class="promotion">
+  <p>Here are this week's promotion :</p>
+</div>
 
 <div class="home-cards">
-
-<% 3.times do %>
-<% example = Place.all.sample %>
-<div class="card-trip">
-  <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" />
-  <div class="card-trip-infos">
-    <div>
-      <h2><%= example.name %></h2>
-      <p><%= example.description %></p>
+  <% 3.times do %>
+  <% example = Place.all.sample %>
+  <div class="card-trip">
+    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" />
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= example.name %></h2>
+        <p><%= example.description %></p>
+      </div>
+      <h2 class="card-trip-pricing"><%= example.price %>€</h2>
     </div>
-    <h2 class="card-trip-pricing"><%= example.price %>€</h2>
   </div>
-</div>
 <% end %>
 </div>
 
-
-<%= link_to 'See our Places', places_path  %>
+<%= link_to 'See our Places', places_path, class: "btn btn-gradient" %>
 
