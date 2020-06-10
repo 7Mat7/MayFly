@@ -15,6 +15,10 @@ class PlacePolicy < ApplicationPolicy
     record.renter == user
   end
 
+  def post?
+    record.bookings.any? { |h| h.guest == user } && record.renter != user
+  end
+
   def book?
     record.bookings.where("bookings.end_date > ?", Time.now).empty? && record.renter != user
     # !record.bookings.where("bookings.end_date > ?", Time.now).any?

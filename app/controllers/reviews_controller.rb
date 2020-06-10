@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
 
   def set_place
     @place = Place.find(params[:place_id])
-    authorize(@place)
+    authorize(@place, :post?)
   end
 
   def review_params

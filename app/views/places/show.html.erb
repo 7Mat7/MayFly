@@ -42,9 +42,11 @@
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <% end %>
 <%= link_to 'Back', places_path %> |
-<% if current_user != @place.renter %>
+
+<% if policy(@place).post? %>
 <%= link_to 'Leave a review', new_place_review_path(@place) %>
 <% end %>
+
 <% if policy(@place).book? %>
 <%= link_to 'Book now', new_place_booking_path(@place) %>
 <% end %>
