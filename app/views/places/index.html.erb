@@ -12,7 +12,13 @@
 
 <ul id='list'>
   <% @places.each do |place|  %>
-    <li class='listed-place' data-size=<%=place.size%> data-price=<%= place.price %> data-available=<%= policy(place).book? %>> <%= place.description %> | <%= place.price %>€ | <%= place.size %>m2
+
+<li class='listed-place' data-size=<%=place.size%> data-price=<%= place.price %> data-available=<%= policy(place).book? %>>
+<div class="card-product">
+  <%= cl_image_tag(place.photos.attachments.first.key) if place.photos.attached? %>
+   <div class="card-product-infos">
+    <h2><%= place.name %></h2>
+    <p><%= place.description %></p>
       <%= link_to "voir", place_path(place) %>
       <% if policy(place).edit? %>
         <%= link_to "Update", edit_place_path(place) %>
@@ -20,8 +26,11 @@
       <% if policy(place).destroy? %>
         <%= link_to "destroy", place_path(place), method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
-    </li>
   <% end %>
+  </div>
+</div>
+</li>
+
 </ul>
 
 <% if policy(Place).create? %>
