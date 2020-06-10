@@ -4,6 +4,12 @@ class PlacesController < ApplicationController
 
   def index
     @places = policy_scope(Place)
+    @markers = @places.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude
+      }
+    end
   end
 
   def show
@@ -18,6 +24,7 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     @place.renter = current_user
     authorize(@place)
+
     if @place.save!
       redirect_to place_path(@place), notice: 'Place was successfully created.'
     else
@@ -52,6 +59,6 @@ class PlacesController < ApplicationController
   end
 
   def place_params
-    params.require(:place).permit(:description, :price, :location, :size, :renter_id, photos: [])
+    params.require(:place).permit(:description, :price, :location, :size, :renter_id, :name, photos: [])
   end
 end
