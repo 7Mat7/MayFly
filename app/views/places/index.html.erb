@@ -3,9 +3,16 @@
 <%= user_signed_in?  %>
 <%= current_user %>
 
+<p>Filter by</p>
 <ul>
+  <li id="size"> Size  </li>
+  <li id="price"> Price </li>
+  <li id="available"> Availability </li>
+</ul>
+
+<ul id='list'>
 <% @places.each do |place|  %>
-<li> <%= place.description %> </li>
+<li class='listed-place' data-size=<%=place.size%> data-price=<%= place.price %>> <%= place.description %> | <%= place.price %>$ | <%= place.size %>m2
 <%= link_to "voir", place_path(place) %>
 <% if policy(place).edit? %>
     <%= link_to "Update", edit_place_path(place) %>
@@ -14,9 +21,11 @@
 <%= link_to "destroy", place_path(place), method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
 <% end %>
+</li>
 </ul>
 
 <% if policy(Place).create? %>
   <%= link_to 'Add your place', new_place_path %>
 <% end %>
 
+<%= javascript_pack_tag 'sort' %>
