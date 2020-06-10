@@ -12,7 +12,7 @@
 
 <ul id='list'>
   <% @places.each do |place|  %>
-    <li class='listed-place' data-size=<%=place.size%> data-price=<%= place.price %> data-available=<%= policy(place).book? %>> <%= place.description %> | <%= place.price %>$ | <%= place.size %>m2
+    <li class='listed-place' data-size=<%=place.size%> data-price=<%= place.price %> data-available=<%= policy(place).book? %>> <%= place.description %> | <%= place.price %>€ | <%= place.size %>m2
       <%= link_to "voir", place_path(place) %>
       <% if policy(place).edit? %>
         <%= link_to "Update", edit_place_path(place) %>
