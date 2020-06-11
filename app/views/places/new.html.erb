@@ -1,8 +1,7 @@
-<h1>Places#new</h1>
-<p>Find me in app/views/places/new.html.erb</p>
-
 <h1>New Place</h1>
-
+<div class="form">
 <%= render 'form', place: @place %>
-
-<%= link_to 'Back', places_path %>
+</div>
+<div>
+<button type="button" class="btn-gradient"><%= link_to 'Back', places_path %></button>
+</div>

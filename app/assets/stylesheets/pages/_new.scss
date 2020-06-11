@@ -1,5 +1,9 @@
+.form {
+  margin: 16px 90px;
+}
+
 .btn-gradient {
-  color: white;
+  color: red;
   padding: 8px 50px;
   border-radius: 50px;
   font-weight: bold;
@@ -8,11 +12,8 @@
   border: 1px solid #FF9F1C;
   text-align: center;
   display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 300px;
   margin-top: 32px;
-}
-
-.btn-gradient:hover {
-  background: linear-gradient(#FF9F1C, #FF9F1C);
-  color: white;
 }
