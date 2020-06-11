@@ -9,7 +9,7 @@ Place.destroy_all
 Review.destroy_all
 Booking.destroy_all
 
-image_folder = CLOUDINARY_URL
+image_folder = '/home/mateo/code/7Mat7/MayFly/app/assets/images/'
 images_array = Dir.children(image_folder)
 
 10.times do
