@@ -12,7 +12,6 @@ Booking.destroy_all
 
 array = ['https://res.cloudinary.com/deqv0vlpu/image/upload/v1591879057/saif7blf9wgvp24sgplklitgakl7.jpg', 'https://st4.depositphotos.com/1005793/22538/v/1600/depositphotos_225380616-stock-illustration-empty-shop-place-for-the.jpg', 'https://i.pinimg.com/474x/ce/30/c8/ce30c808d295c401c1c10f70bf37dcd3--pop-up-shops-email.jpg', 'https://thumbs.dreamstime.com/z/empty-store-interior-led-lamps-installed-shop-square-shape-ceiling-%C3%AF%C2%BC%C5%93empty-shelves-empty-store-shelves-supermarket-103483433.jpg', 'https://www.miresparis.com/wp-content/uploads/2017/09/C0410-2017-065.jpg', 'https://www.sapeople.com/wp-content/uploads/2020/03/empty-shelves-shop-3.jpg', 'https://headtopics.com/images/2020/3/18/dailymirror/elderly-man-staring-at-empty-shop-shelves-shows-coronavirus-panic-buy-impact-1240379572593590275.webp', 'https://i2-prod.somersetlive.co.uk/news/somerset-news/article202316.ece/ALTERNATES/s1227b/empty-shop-middle-street-1JPG.jpg', 'https://mlvc6feq53ym.i.optimole.com/bT6pLwk-OKkchWZF/w:550/h:413/q:auto/http://bestofbristol.co/wp-content/uploads/2015/12/empty-shop-whiteladies-3.jpg', 'https://www.romania-insider.com/sites/default/files/styles/article_large_image/public/featured_images/The-Empty-Shop.jpg']
 
-
 10.times do
 
   user1 = User.new(
@@ -74,8 +73,4 @@ array = ['https://res.cloudinary.com/deqv0vlpu/image/upload/v1591879057/saif7blf
   booking.save!
 
 end
-p 'Finished seeds'
-p "Places = #{Place.all.count}"
-p "Bookings : #{Booking.all.count}"
-p "Reviews : #{Review.all.count}"
 

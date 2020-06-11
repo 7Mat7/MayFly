@@ -48,5 +48,6 @@
 <% end %>
 
 <% if policy(@place).book? %>
-<%= link_to 'Book now', new_place_booking_path(@place) %>
+<%= render 'shared/new_booking'  %>
 <% end %>
+

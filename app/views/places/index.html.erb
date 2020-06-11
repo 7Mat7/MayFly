@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-index">
 <div class="pasflex">
   <h1>Find the perfect place !</h1>
 
@@ -56,7 +56,6 @@
   </ul>
 
   <div id="map"
-       style="width: 100%; height: 600px;"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
