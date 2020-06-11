@@ -2,7 +2,14 @@
 <div class="pasflex">
   <h1>Find the perfect place !</h1>
 
-
+<%= form_tag places_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a place"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
 
     <ul class="menu-filters">
       <li class='filter-list filter-title'> Filter by :</li>
