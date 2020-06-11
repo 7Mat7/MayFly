@@ -52,7 +52,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  width: 600px;
+  width: 800px;
   margin-right: 16px;
   margin-bottom: 16px;
   transition: all .2s ease-in-out;
@@ -114,4 +114,8 @@
   bottom: 16px;
   right: 16px;
   font-family: nunito;
+}
+
+.pasflex {
+  width: 800px;
 }

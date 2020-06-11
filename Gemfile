@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.0.1'
 
 gem 'devise'
 gem 'pundit'
