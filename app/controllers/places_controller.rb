@@ -18,9 +18,6 @@ class PlacesController < ApplicationController
     else
       @places = Place.all
     end
-
-    ap "je susi la"
-    ap @markers
   end
 
   def show
