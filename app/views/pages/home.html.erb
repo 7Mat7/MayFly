@@ -23,5 +23,9 @@
 <% end %>
 </div>
 
-<%= link_to 'See our Places', places_path, class: "btn btn-gradient" %>
-
+<div class="container-home">
+  <%= link_to 'See our Places', places_path, class: "btn btn-gradient" %>
+  <% if policy(Place).create? %>
+    <%= link_to 'Add your own', new_place_path, class:'btn-gradient' %>
+  <% end %>
+</div>

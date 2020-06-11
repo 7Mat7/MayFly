@@ -1,46 +1,46 @@
 <div class="container">
-<h1>Find the perfect place !</h1>
-</div>
+<div class="pasflex">
+  <h1>Find the perfect place !</h1>
 
-<div class="container">
-  <ul class="menu-filters">
-    <li class='filter-list filter-title'> Filter by :</li>
-    <li class='filter filter-list' id="size"> <span>Size </span></li>
-    <li class='filter filter-list' id="price"> Price </li>
-    <li class='filter filter-list' id="available"> Availability </li>
-  </ul>
-</div>
 
-<div class="cards-map">
+
+    <ul class="menu-filters">
+      <li class='filter-list filter-title'> Filter by :</li>
+      <li class='filter filter-list' id="size"> <span>Size </span></li>
+      <li class='filter filter-list' id="price"> Price </li>
+      <li class='filter filter-list' id="available"> Availability </li>
+    </ul>
 
   <ul id='list'>
-    <% @places.each do |place|  %>
+    <% @places.each do |place| %>
+      <li class='listed-place' data-size=<%=place.size%> data-price=<%= place.price%> data-available=<%= policy(place).book? %>>
+        <%= link_to place_path(place), class:'card-link' do %>
 
-  <li class='listed-place' data-size=<%=place.size%> data-price=<%= place.price%> data-available=<%= policy(place).book? %>>
-  <%= link_to place_path(place), class:'card-link' do %>
-    <div class="card-product">
-      <%= cl_image_tag(place.photos.attachments.first.key) if place.photos.attached? %>
-    <div class="card-product-infos">
-      <h2><%= place.name %></h2>
-      <p><%= place.description %></p>
+          <div class="card-product">
+            <%= cl_image_tag(place.photos.attachments.first.key) if place.photos.attached? %>
+              <div class="card-product-infos">
+                <h2><%= place.name %></h2>
+                <p><%= place.description %></p>
 
-      <% if policy(place).edit? %>
-        <%= link_to edit_place_path(place) do %>
-          <i class="far fa-edit"></i>
-          <% end %>
-      <% end %>
-      <% if policy(place).destroy? %>
-        <%= link_to place_path(place),
-            method: :delete,
-            data: { confirm: 'Are you sure?' } do %>
-          <i class="far fa-trash-alt"></i>
+                <% if policy(place).edit? %>
+                  <%= link_to edit_place_path(place) do %>
+                    <i class="far fa-edit"></i>
+                  <% end %>
+                <% end %>
+
+                <% if policy(place).destroy? %>
+                  <%= link_to place_path(place),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?' } do %>
+                      <i class="far fa-trash-alt"></i>
+                    <% end %>
+                <% end %>
+              </div>
+          </div>
         <% end %>
-        <% end %>
-      <% end %>
-      <% end %>
-    </div>
-</li>
-
+      </li>
+    <% end %>
+</div>
 
   </ul>
 
@@ -50,11 +50,6 @@
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 
-  </div>
-
-
-    <% if policy(Place).create? %>
-    <%= link_to 'Add your place', new_place_path %>
-  <% end %>
+</div>
 
 <%= javascript_pack_tag 'sort' %>
