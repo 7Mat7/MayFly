@@ -1,36 +1,60 @@
-<h1>Places#index</h1>
-<p>Find me in app/views/places/index.html.erb</p>
-<%= user_signed_in?  %>
-<%= current_user %>
+<div class="container">
+<h1>Find the perfect place !</h1>
+</div>
 
-<p>Filter by</p>
-<ul>
-  <li id="size"> Size  </li>
-  <li id="price"> Price </li>
-  <li id="available"> Availability </li>
-</ul>
+<div class="container">
+  <ul class="menu-filters">
+    <li class='filter-list filter-title'> Filter by :</li>
+    <li class='filter filter-list' id="size"> <span>Size </span></li>
+    <li class='filter filter-list' id="price"> Price </li>
+    <li class='filter filter-list' id="available"> Availability </li>
+  </ul>
+</div>
 
-<ul id='list'>
-  <% @places.each do |place|  %>
-    <li class='listed-place' data-size=<%=place.size%> data-price=<%= place.price %> data-available=<%= policy(place).book? %>> <%= place.description %> | <%= place.price %>€ | <%= place.size %>m2
-      <%= link_to "voir", place_path(place) %>
+<div class="cards-map">
+
+  <ul id='list'>
+    <% @places.each do |place|  %>
+
+  <li class='listed-place' data-size=<%=place.size%> data-price=<%= place.price%> data-available=<%= policy(place).book? %>>
+  <%= link_to place_path(place), class:'card-link' do %>
+    <div class="card-product">
+      <%= cl_image_tag(place.photos.attachments.first.key) if place.photos.attached? %>
+    <div class="card-product-infos">
+      <h2><%= place.name %></h2>
+      <p><%= place.description %></p>
+
       <% if policy(place).edit? %>
-        <%= link_to "Update", edit_place_path(place) %>
+        <%= link_to edit_place_path(place) do %>
+          <i class="far fa-edit"></i>
+          <% end %>
       <% end %>
       <% if policy(place).destroy? %>
-        <%= link_to "destroy", place_path(place), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to place_path(place),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } do %>
+          <i class="far fa-trash-alt"></i>
+        <% end %>
+        <% end %>
       <% end %>
-    </li>
+      <% end %>
+    </div>
+</li>
+
+
+  </ul>
+
+  <div id="map"
+       style="width: 100%; height: 600px;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
+
+  </div>
+
+
+    <% if policy(Place).create? %>
+    <%= link_to 'Add your place', new_place_path %>
   <% end %>
-</ul>
-
-<% if policy(Place).create? %>
-  <%= link_to 'Add your place', new_place_path %>
-<% end %>
-
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 <%= javascript_pack_tag 'sort' %>
