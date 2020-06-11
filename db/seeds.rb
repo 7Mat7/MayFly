@@ -9,10 +9,8 @@ Place.destroy_all
 Review.destroy_all
 Booking.destroy_all
 
-image_folder = '/home/mateo/code/7Mat7/MayFly/app/assets/images/'
+image_folder = CLOUDINARY_URL
 images_array = Dir.children(image_folder)
-
-ap images_array
 
 10.times do
 
@@ -43,17 +41,14 @@ ap images_array
   sampled_image = images_array.sample
   p image_folder + sampled_image
   photo = place.photos.attach(io: File.open(image_folder + sampled_image), filename: sampled_image,  )
-  p 'coucou'
 
   sampled_image2 = images_array.sample
   p image_folder + sampled_image
   photo2 = place.photos.attach(io: File.open(image_folder + sampled_image2), filename: sampled_image2,  )
-  p 'coucou'
 
   sampled_image1 = images_array.sample
   p image_folder + sampled_image
   photo1 = place.photos.attach(io: File.open(image_folder + sampled_image1), filename: sampled_image1,  )
-  p 'coucou'
 
   place.save!
 
