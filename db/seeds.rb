@@ -9,7 +9,7 @@ Place.destroy_all
 Review.destroy_all
 Booking.destroy_all
 
-image_folder = '/home/mateo/code/7Mat7/MayFly/app/assets/images/'
+image_folder = '/Users/julienlaire/code/julienlaire/MayFly/app/assets/images/'
 images_array = Dir.children(image_folder)
 
 ap images_array

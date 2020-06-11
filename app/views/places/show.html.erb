@@ -1,22 +1,23 @@
-<h1>Places#show</h1>
-<p>Find me in app/views/places/show.html.erb</p>
+
 <%= user_signed_in?  %>
 <%= current_user %>
 <p id="notice"><%= notice %></p>
 
-<div class="container">
+
+<div class="container2">
     <div class="tile">
-        <img src="https://images.unsplash.com/photo-1591800713850-6eb421c6915d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60">
+        <img src="https://images.unsplash.com/photo-1588775286394-488d8cf1c8e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60">
     </div>
     <div class="tile">
-        <img src="https://images.unsplash.com/photo-1591811478738-8b14d7d84353?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60">
+        <img src="https://images.unsplash.com/photo-1591860801311-110439814ec9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60">
     </div>
     <div class="tile">
-        <img src="https://images.unsplash.com/photo-1591810444762-544ac64723f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60">
+        <img src="https://images.unsplash.com/photo-1591758879070-8e0cba963611?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60">
     </div>
+
 </div>
 
-<div class="test">
+
 <p>
   <strong>Description:</strong>
   <%= @place.description %>
@@ -63,5 +64,4 @@
 <% if policy(@place).book? %>
 <%= link_to 'Book now', new_place_booking_path(@place) %>
 <% end %>
-</div>
 
