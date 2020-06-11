@@ -11,7 +11,7 @@
   </ul>
 </div>
 
-<div class="container">
+<div class="cards-map">
 
   <ul id='list'>
     <% @places.each do |place|  %>
@@ -38,9 +38,9 @@
         <% end %>
       <% end %>
       <% end %>
-  </div>
-</div>
+    </div>
 </li>
+
 
   </ul>
 
@@ -49,6 +49,9 @@
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
+
+  </div>
+
 
     <% if policy(Place).create? %>
     <%= link_to 'Add your place', new_place_path %>
