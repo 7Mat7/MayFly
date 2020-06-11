@@ -14,7 +14,7 @@
   <ul id='list'>
     <% @places.each do |place| %>
       <li class='listed-place' data-size=<%=place.size%> data-price=<%= place.price%> data-available=<%= policy(place).book? %>>
-        <%= link_to place_path(place), class:'card-link' do %>
+        <%= link_to place_path(place), class: "card-link" do %>
 
           <div class="card-product">
             <%= cl_image_tag(place.photos.attachments.first.key) if place.photos.attached? %>
