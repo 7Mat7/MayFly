@@ -1,3 +1,5 @@
+//  Cards on Home Page
+
 .card-trip {
   overflow: hidden;
   background: white;
@@ -41,6 +43,8 @@
   width: 40px;
 }
 
+// cards on Index
+
 .card-product {
   overflow: hidden;
   height: 120px;
@@ -48,6 +52,12 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  width: 600px;
+  margin-right: 16px;
+  margin-bottom: 16px;
+  transition: all .2s ease-in-out;
+  position: relative;
+
 }
 
 .card-product img {
@@ -72,4 +82,24 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.card-link {
+  text-decoration: none;
+}
+
+.card-product:hover {
+  transform: scale(1.03);
+}
+
+.far.fa-trash-alt{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.far.fa-edit{
+  position: absolute;
+  top: 16px;
+  right: 40px;
 }
