@@ -10,11 +10,17 @@ class PlacesController < ApplicationController
         lng: place.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { place: place }),
         image_url: helpers.asset_url('logo.png')
-    }
+      }
+      if params[:query].present?
+        @places = Place.where("location ILIKE ?", "%#{params[:query]}%")
+      else
+        @places = Place.all
+      end
     end
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
