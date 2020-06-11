@@ -1,0 +1,19 @@
+.form {
+  margin: 16px 90px;
+}
+
+.btn-gradient {
+  color: red;
+  padding: 8px 50px;
+  border-radius: 50px;
+  font-weight: bold;
+  background: linear-gradient(#FF9F1C, #FFC170);
+  transition: background 0.3s ease;
+  border: 1px solid #FF9F1C;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  margin-top: 32px;
+}
