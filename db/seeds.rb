@@ -21,12 +21,17 @@ array = ['https://res.cloudinary.com/deqv0vlpu/image/upload/v1591879057/saif7blf
   )
   user1.save!
 
+puts "saving user 1 !"
+
   user2 = User.new(
     name: Faker::Name.name,
     email: Faker::Internet.free_email,
     password: Faker::Internet.password(min_length: 8)
   )
   user2.save!
+
+  puts "saving user 2 !"
+
 
   place = Place.create!(
     name: Faker::Address.street_name,
@@ -39,6 +44,8 @@ array = ['https://res.cloudinary.com/deqv0vlpu/image/upload/v1591879057/saif7blf
     longitude: Faker::Address.longitude,
     )
 
+  puts "creating place !"
+
     url1 = array.sample
     url2 = array.sample
     url3 = array.sample
@@ -49,11 +56,17 @@ array = ['https://res.cloudinary.com/deqv0vlpu/image/upload/v1591879057/saif7blf
     place.photos.attach(io: rand1, filename: 'seed_image')
     place.save!
 
+    puts "attaching photo !"
+
     place.photos.attach(io: rand2, filename: 'seed_image')
     place.save!
 
+    puts "attaching photo !"
+
     place.photos.attach(io: rand3, filename: 'seed_image')
     place.save!
+
+    puts "attaching photo !"
 
   5.times do
     review = Review.new(
