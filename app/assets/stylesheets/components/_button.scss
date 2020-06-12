@@ -21,3 +21,36 @@
 .btn.btn-gradient {
   margin-right: 20px
 }
+
+.btn-home {
+  border: none;
+  width: auto;
+  height: auto;
+  padding: 10px 40px;
+  outline: none;
+  font-size: 15px;
+  background-color: #ff9f1c;
+  border: 1px solid white;
+  border-radius: 5px;
+  text-align: center;
+    font-weight: bold;
+  }
+
+.btn-home a {
+  color: #222222;
+
+}
+
+.btn.btn-home.form-inline {
+    color: #222222;
+    font-weight: bold;
+}
+
+.btn.btn-home:hover {
+  background-color: white;
+  border: none;
+  transform: scale(1.1);
+  color: #ff9f1c;
+border: 1px solid #ff9f1c;
+}
+
