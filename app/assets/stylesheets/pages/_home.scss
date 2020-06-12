@@ -1,10 +1,11 @@
 // Specific CSS for your home-page
 .home-cards {
   display: flex;
-  justify-content: space-between;
-  width: 900px;
+  justify-content: space-around;
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 50px;
 }
 
 body {
@@ -12,19 +13,24 @@ body {
 }
 
 .home-banner {
-  margin-top: 48px;
   margin-bottom: 48px;
   width: 900px;
   margin-left: auto;
   margin-right: auto;
+  color:white;
 }
 
 .promotion {
   width: 900px;
   margin-left: auto;
   margin-right: auto;
+  color: white;
+  margin-top: 115px;
 }
-
+.home-banner h1 {
+  margin-top: 0px;
+  padding-top: 50px;
+}
 .container-home {
   display: flex;
   justify-items: space-between;
@@ -32,3 +38,22 @@ body {
   margin-left: auto;
   width: 600px;
 }
+
+.container-home .btn-gradient {
+  margin-top: 70px;
+}
+
+.main-container {
+  background-image: url(https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1510&q=80);
+  height: 500px;
+  background-size: center;
+  background-position: center;
+}
+
+
+
+
+
+
+
+
