@@ -32,6 +32,9 @@
                 <div class="card-price">
                   <%= place.price %> €/day
                 </div>
+                 <div class="card-size">
+                  <%= place.size %> m2
+                </div>
 
                 <% if policy(place).edit? %>
                   <%= link_to edit_place_path(place) do %>
