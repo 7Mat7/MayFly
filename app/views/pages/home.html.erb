@@ -1,10 +1,18 @@
-<div class="home-banner">
-  <h1>MayFly</h1>
-  <h2>Find the best shop for your business !</h2>
+
+<div class="main-container">
+  <div class="home-banner">
+    <h1>MayFly</h1>
+    <h2>Find the best shop for your business !</h2>
+  </div>
+
+
+  <div class="container-home">
+  <%= link_to 'See our Places', places_path, class: "btn btn-gradient" %>
+  <% if policy(Place).create? %>
+    <%= link_to 'Add your own', new_place_path, class: "btn btn-gradient" %>
+  <% end %>
 </div>
 
-<div class="promotion">
-  <p>Here are this week's promotion :</p>
 </div>
 
 <div class="home-cards">
@@ -23,9 +31,6 @@
 <% end %>
 </div>
 
-<div class="container-home">
-  <%= link_to 'See our Places', places_path, class: "btn btn-gradient" %>
-  <% if policy(Place).create? %>
-    <%= link_to 'Add your own', new_place_path, class: "btn btn-gradient" %>
-  <% end %>
-</div>
+
+
+
