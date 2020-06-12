@@ -1,7 +1,5 @@
 <div class="container">
-  <% if notice %>
-    <p class="alert alert-warning" role="alert"><%= notice %></p>
-  <% end %>
+<p id="notice"><%= notice %></p>
 
 <div class="name">
   <h1><%= @place.name %></h1>
@@ -41,7 +39,7 @@
     </p>
 
       <h3>
-        <strong>Location:</strong>
+        <strong>location:</strong>
       </h3>
     <p>
       <%= @place.location %>
@@ -62,7 +60,7 @@
     <h3>What they say about <%= @place.name %></h3>
     <% @place.reviews.each do |review| %>
       <li class="list-group-item">
-        <strong> <%= review.guest.name %>  </strong>:
+        <strong> <%= review.guest.email.partition('@').first %>  </strong>:
         <%= review.comment %>
       </li>
     <% end %>
