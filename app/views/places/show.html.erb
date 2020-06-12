@@ -1,5 +1,7 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
+  <% if notice %>
+    <p class="alert alert-warning" role="alert"><%= notice %></p>
+  <% end %>
 
 <div class="name">
   <h1><%= @place.name %></h1>
