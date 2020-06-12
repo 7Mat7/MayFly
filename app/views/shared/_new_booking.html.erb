@@ -1,16 +1,12 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
-
 <%= simple_form_for([@place, @booking]) do |f| %>
-  <!-- # <%= f.error_notification %> -->
-  <!-- # <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %> -->
 
-  <div class="form-inputs">
+  <div class="booking-inputs">
+  <h1>Book <%= @place.name %> now</h1><br>
     <%= f.input :end_date, as: :date, html5: true %>
-  </div>
-
-  <div class="form-actions">
+  <div class="booking-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+  </div>
+
 

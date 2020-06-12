@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.guest = current_user
     @booking.place = @place
     if @booking.save!
-      redirect_to place_path(@place), notice: 'Booking was successfully created.'
+      redirect_to place_path(@place), notice: "Booking from #{Date.today} to #{@booking.end_date} was successfully created."
     else
       render :new
     end
