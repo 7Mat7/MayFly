@@ -58,12 +58,14 @@
 
 <div class="reviews">
   <ul class="list-group">
+   <% if @place.reviews.any? %>
     <h3>What they say about <%= @place.name %></h3>
     <% @place.reviews.each do |review| %>
       <li class="list-group-item">
         <strong> <%= review.guest.email.partition('@').first %>  </strong>:
         <%= review.comment %>
       </li>
+    <% end %>
     <% end %>
   </ul>
 </div>
