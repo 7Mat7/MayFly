@@ -1,15 +1,17 @@
-this is new review
-
+<div class="reviewnew">
+<div class="container">
+  <div class="form-input">
 <%= simple_form_for([@place, @review]) do |f| %>
-  <!-- # <%= f.error_notification %> -->
-  <!-- # <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %> -->
 
   <div class="form-inputs">
+ <h1>Leave a Review</h1>
     <%= f.input :comment %>
     <%= f.input :rating %>
-  </div>
-
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
+  </div>
+</div>
 <% end %>
+</div>
+</div>
