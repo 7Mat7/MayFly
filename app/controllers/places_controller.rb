@@ -21,12 +21,6 @@ class PlacesController < ApplicationController
       @places = Place.where(sql_query, query: "%#{params[:query]}%")
     else
       @places = Place.all
-
-    # if params[:query].present?
-    #   sql_query = 'location ILIKE :query OR name ILIKE :query'
-    #   @places = Place.where(sql_query, "%#{params[:query]}%")
-    # else
-    #   @places = Place.all
      end
   end
 

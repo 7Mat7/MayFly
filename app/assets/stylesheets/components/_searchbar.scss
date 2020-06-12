@@ -1,0 +1,38 @@
+.search-form {
+  display: flex;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.search-input {
+  flex-grow: 1;
+  margin-right: 8px;
+}
+
+.btn-index {
+  border: none;
+  width: 100px;
+  height: auto;
+  outline: none;
+  font-size: 15px;
+  background-color: rgba(0,0,0,0);
+  border: 1px solid #ff9f1c;
+  border-radius: 5px;
+  text-align: center;
+  }
+
+.btn-index a {
+  color: #222222;
+}
+
+.btn.btn-index.form-inline {
+    color: #222222;
+    font-weight: bold;
+}
+
+.btn.btn-index.form-inline:hover {
+  background-color: #ff9f1c;
+  border: none;
+  transform: scale(1.1);
+  color: white;
+}
