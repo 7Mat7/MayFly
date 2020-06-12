@@ -73,3 +73,19 @@
 ul#menu li {
   display: inline-block;
 }
+
+.name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name h2 {
+  color: rgb(21, 21, 21);
+  font-size: 28px;
+  margin-right: 5vh;
+}
+
+.pricecontainer {
+  margin-top: 5vh;
+}

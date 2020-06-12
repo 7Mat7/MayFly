@@ -1,40 +1,51 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
 
-<h1><%= @place.name %></h1>
+<div class="name">
+  <h1><%= @place.name %></h1>
+  <h2><%= @place.size %> m2</h2>
+</div>
+
 <div class="container2">
+
     <div class="tile">
       <%= cl_image_tag(@place.photos.attachments.first.key) %>
     </div>
+
     <div class="tile">
-<%= cl_image_tag(@place.photos.attachments[1].key) %>    </div>
+      <%= cl_image_tag(@place.photos.attachments[0].key) %>
+    </div>
+
     <div class="tile">
       <%= cl_image_tag(@place.photos.attachments.last.key) %>
     </div>
+</div>
 
+<div class="pricecontainer">
+    <h3>
+      <strong>Price:</strong>
+      <%= @place.price %> /day
+    </h3>
 </div>
 
 <div class="booking-desc">
   <div class="info">
-    <p>
+
+    <h3>
       <strong>Description:</strong>
+    </h3>
+    <p>
       <%= @place.description %>
     </p>
 
+      <h3>
+        <strong>location:</strong>
+      </h3>
     <p>
-      <strong>location:</strong>
       <%= @place.location %>
     </p>
 
-    <p>
-      <strong>Price:</strong>
-      <%= @place.price %> /day
-    </p>
 
-    <p>
-      <strong>size:</strong>
-      <%= @place.size %> m2
-    </p>
   </div>
 
   <div class="booking">

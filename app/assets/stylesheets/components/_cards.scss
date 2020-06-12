@@ -128,3 +128,26 @@
 .pasflex {
   width: 800px;
 }
+
+.unavailable-place {
+transform: scale(0.95);
+}
+.unavailable-place h2 {
+  color: rgb(211,211,211);
+}
+
+.unavailable-place .card-price  {
+  color: rgb(211,211,211);
+}
+
+.unavailable-place .card-size {
+ color: rgb(211,211,211);
+}
+
+.unavailable-place .card-product img {
+filter: grayscale(1);
+}
+
+.unavailable-place p {
+  color: rgb(211,211,211);
+}
