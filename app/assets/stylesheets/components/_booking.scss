@@ -1,0 +1,40 @@
+.booking-desc {
+  display: flex;
+  margin-top: 10vh;
+}
+
+.booking-inputs {
+  color: #fff;
+  margin: 0 auto;
+  max-width: 550px;
+  box-sizing: border-box;
+  background-color: rgba(0,0,0,0.4);
+  padding: 40px;
+  border-radius: 5px;
+  border: 1px solid #ff9f1c;
+  position: relative;
+  }
+
+.booking-actions {
+  color: #ffffff;
+  border: none;
+  width: 300px;
+  height: 40px;
+  outline: none;
+  font-size: 15px;
+  background-color: rgba(0,0,0,0.5);
+  border: 1px solid #ff9f1c;
+  border-radius: 5px;
+  text-align: center
+}
+
+.booking-inputs h1 {
+  margin: 0;
+}
+
+.booking-actions:hover {
+    background-color: #ff9f1c;
+  border: none;
+  transform: scale(1.1);
+  color: white;
+}
