@@ -1,15 +1,15 @@
-<div class="reviewnew">
+<div class="review-new">
 <div class="container">
   <div class="form-input">
 <%= simple_form_for([@place, @review]) do |f| %>
 
   <div class="form-inputs">
- <h1>Leave a Review</h1>
-    <%= f.input :comment %>
-    <%= f.input :rating %>
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+    <h1>Leave a Review</h1>
+      <%= f.input :comment %>
+      <%= f.input :rating %>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
   </div>
 </div>
 <% end %>
