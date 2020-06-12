@@ -10,11 +10,22 @@ class PlacesController < ApplicationController
         lng: place.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { place: place }),
         image_url: helpers.asset_url('logo.png')
-    }
+      }
     end
+
+     if params[:query].present?
+      sql_query = " \
+        places.name @@ :query \
+        OR places.location @@ :query \
+      "
+      @places = Place.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @places = Place.all
+     end
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new

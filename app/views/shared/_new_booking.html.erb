@@ -1,0 +1,12 @@
+<%= simple_form_for([@place, @booking]) do |f| %>
+
+  <div class="booking-inputs">
+  <h1>Book <%= @place.name %> now</h1><br>
+    <%= f.input :end_date, as: :date, html5: true %>
+  <div class="booking-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+  </div>
+
+

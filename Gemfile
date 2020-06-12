@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.0.1'
 
 gem 'devise'
 gem 'pundit'
@@ -32,7 +33,7 @@ gem 'cloudinary', '~> 1.12.0'
 gem 'geocoder'
 gem 'faker'
 gem 'awesome_print'
-
+gem 'pg_search', '~> 2.3.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

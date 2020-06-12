@@ -1,67 +1,75 @@
-
-<%= user_signed_in?  %>
-<%= current_user %>
+<div class="container">
 <p id="notice"><%= notice %></p>
 
-
+<h1><%= @place.name %></h1>
 <div class="container2">
     <div class="tile">
-        <img src="https://images.unsplash.com/photo-1591880908807-ff712ec02c24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60">
+      <%= cl_image_tag(@place.photos.attachments.first.key) %>
     </div>
     <div class="tile">
-        <img src="https://images.unsplash.com/photo-1591860801311-110439814ec9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60">
-    </div>
+<%= cl_image_tag(@place.photos.attachments[1].key) %>    </div>
     <div class="tile">
-        <img src="https://images.unsplash.com/photo-1591758879070-8e0cba963611?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60">
+      <%= cl_image_tag(@place.photos.attachments.last.key) %>
     </div>
 
 </div>
 
+<div class="booking-desc">
+  <div class="info">
+    <p>
+      <strong>Description:</strong>
+      <%= @place.description %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @place.description %>
-</p>
+    <p>
+      <strong>location:</strong>
+      <%= @place.location %>
+    </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @place.price %>
-</p>
+    <p>
+      <strong>Price:</strong>
+      <%= @place.price %> /day
+    </p>
 
-<p>
-  <strong>location:</strong>
-  <%= @place.location %>
-</p>
+    <p>
+      <strong>size:</strong>
+      <%= @place.size %> m2
+    </p>
+  </div>
 
-<p>
-  <strong>size:</strong>
-  <%= @place.size %>
-</p>
+  <div class="booking">
+    <% if policy(@place).book? %>
+    <%= render 'shared/new_booking'  %>
+    <% end %>
+  </div>
+</div>
 
-<p>
-<% @place.photos.each do |photo|%>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-</p>
+<div class="reviews">
+  <ul class="list-group">
+    <h3>What they say about <%= @place.name %></h3>
+    <% @place.reviews.each do |review| %>
+      <li class="list-group-item">
+        <strong> <%= review.guest.name %>  </strong>:
+        <%= review.comment %>
+      </li>
+    <% end %>
+  </ul>
+</div>
 
-<ul class="list-group">
-  <% @place.reviews.each do |review| %>
-    <li class="list-group-item">
-      <%= review.comment %>
-    </li>
+<div class="actions">
+  <ul id="menu">
+  <li> <% if policy(@place).edit? %>
+    <%= link_to 'Edit', edit_place_path(@place), class: "btn btn-show" %>
   <% end %>
-</ul>
-
-<% if policy(@place).edit? %>
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<% end %>
-<%= link_to 'Back', places_path %> |
-
-<% if policy(@place).post? %>
-<%= link_to 'Leave a review', new_place_review_path(@place) %>
-<% end %>
-
-<% if policy(@place).book? %>
-<%= link_to 'Book now', new_place_booking_path(@place) %>
-<% end %>
-
+  </li>
+  <li>
+  <%= link_to 'Back', places_path, class: "btn btn-show" %>
+</li>
+<li>
+  <% if policy(@place).post? %>
+     <%= link_to 'Leave a review', new_place_review_path(@place), class: "btn btn-show" %>
+  <% end %>
+  </li>
+  </ul>
+  </div>
+</div>
