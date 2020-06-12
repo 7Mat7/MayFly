@@ -91,11 +91,15 @@ place1 = Place.create!(
     latitude: 45.777707,
     longitude: 4.828923,
     )
-
 array1 = ['https://images.pexels.com/photos/331990/pexels-photo-331990.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'https://images.pexels.com/photos/2079438/pexels-photo-2079438.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'https://images.pexels.com/photos/1005638/pexels-photo-1005638.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940']
-url1 = array1.sample
-rand1 = URI.open(url1)
-place1.photos.attach(io: rand1, filename: 'seed_image1')
+# puts 'array1'
+# url1 = array1
+# puts 'url1'
+# rand1 = URI.open(url1)
+# puts 'rand1'
+array1.each do |url|
+  place1.photos.attach(io: URI.open(url), filename: 'seed_image1')
+end
 place1.save!
 
 puts "attaching photo1 !"
@@ -114,9 +118,13 @@ puts "attaching photo1 !"
     )
 
   array2 = ['https://images.pexels.com/photos/929245/pexels-photo-929245.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'https://images.pexels.com/photos/374894/pexels-photo-374894.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'https://images.pexels.com/photos/1070945/pexels-photo-1070945.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940']
-  url2 = array2.sample
-  rand2 = URI.open(url2)
-  place2.photos.attach(io: rand2, filename: 'seed_image')
+  array2.each do |url|
+  place2.photos.attach(io: URI.open(url), filename: 'seed_image1')
+end
+
+  # url2 = array2.sample
+  # rand2 = URI.open(url2)
+  # place2.photos.attach(io: rand2, filename: 'seed_image')
 
   place2.save!
 
@@ -134,9 +142,12 @@ puts "attaching photo1 !"
     )
 
   array3 = ['https://images.pexels.com/photos/135620/pexels-photo-135620.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'https://images.pexels.com/photos/803908/pexels-photo-803908.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'https://images.pexels.com/photos/271649/pexels-photo-271649.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940']
-  url3 = array3.sample
-  rand3 = URI.open(url3)
-  place3.photos.attach(io: rand3, filename: 'seed_image')
+  # url3 = array3.sample
+  # rand3 = URI.open(url3)
+  # place3.photos.attach(io: rand3, filename: 'seed_image')
+  array3.each do |url|
+  place3.photos.attach(io: URI.open(url), filename: 'seed_image1')
+end
   place3.save!
 
   puts "creating place3 !"
@@ -153,9 +164,12 @@ puts "attaching photo1 !"
     )
 
    array4 = ['https://images.pexels.com/photos/1853951/pexels-photo-1853951.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'https://images.pexels.com/photos/1236044/pexels-photo-1236044.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'https://images.pexels.com/photos/20943/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940']
-  url4 = array4.sample
-  rand4 = URI.open(url4)
-  place4.photos.attach(io: rand4, filename: 'seed_image')
+  # url4 = array4.sample
+  # rand4 = URI.open(url4)
+  # place4.photos.attach(io: rand4, filename: 'seed_image')
+  array4.each do |url|
+  place4.photos.attach(io: URI.open(url), filename: 'seed_image1')
+end
   place4.save!
 
   puts "creating place4 !"
@@ -170,12 +184,13 @@ puts "attaching photo1 !"
     latitude: 45.762503,
     longitude: 4.842854,
     )
-     array5 = ['https://images.pexels.com/photos/3831826/pexels-photo-3831826.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      'https://images.pexels.com/photos/3284980/pexels-photo-3284980.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      'https://images.pexels.com/photos/373488/pexels-photo-373488.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940']
-  url5 = array5.sample
-  rand5= URI.open(url5)
-  place5.photos.attach(io: rand5, filename: 'seed_image')
+     array5 = ['https://images.pexels.com/photos/3831826/pexels-photo-3831826.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'https://images.pexels.com/photos/3284980/pexels-photo-3284980.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'https://images.pexels.com/photos/373488/pexels-photo-373488.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940']
+  # url5 = array5.sample
+  # rand5= URI.open(url5)
+  # place5.photos.attach(io: rand5, filename: 'seed_image')
+  array5.each do |url|
+  place5.photos.attach(io: URI.open(url), filename: 'seed_image1')
+end
   place5.save!
 
   puts "creating place5 !"
@@ -190,12 +205,13 @@ puts "attaching photo1 !"
     latitude: 45.762139,
     longitude: 4.836711,
     )
-     array6 = ['https://images.pexels.com/photos/762800/pexels-photo-762800.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      'https://images.pexels.com/photos/813688/pexels-photo-813688.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-      'https://images.pexels.com/photos/928216/pexels-photo-928216.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940']
-  url6 = array6.sample
-  rand6 = URI.open(url6)
-  place6.photos.attach(io: rand6, filename: 'seed_image')
+     array6 = ['https://images.pexels.com/photos/762800/pexels-photo-762800.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'https://images.pexels.com/photos/813688/pexels-photo-813688.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 'https://images.pexels.com/photos/928216/pexels-photo-928216.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940']
+  # url6 = array6.sample
+  # rand6 = URI.open(url6)
+  # place6.photos.attach(io: rand6, filename: 'seed_image')
+  array6.each do |url|
+  place6.photos.attach(io: URI.open(url), filename: 'seed_image1')
+end
   place6.save!
 
   puts "creating place6 !"
