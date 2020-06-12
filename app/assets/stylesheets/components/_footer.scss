@@ -3,6 +3,22 @@ footer {
     justify-content: center;
     padding: 5px;
     background-color: #ffffff;
-    color: #000000;
+    color: #C5C5C3;
     margin-top: 40px;
   }
+
+footer ul {
+    list-style: none;
+    padding-left: 16px;
+    font-size: 32px;
+}
+
+footer p {
+    /* margin-top: 0; */
+    margin-bottom: 1rem;
+};
+
+.foter {
+    display: flex;
+    align-items: center;
+}
